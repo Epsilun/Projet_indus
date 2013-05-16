@@ -225,7 +225,7 @@ polar(0,0) %pour avoir la grid
 hold on
 plot(I_norm,Iy_norm)
 
-
+% et voila!
 
 
 %   astuce, mesure temps code: 
