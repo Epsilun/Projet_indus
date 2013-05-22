@@ -54,7 +54,7 @@ format compact
  pas_BF = Te_BF/Te; %pas d'échantillonage pour les BF par rapport au signal HF: nombre d'échantillon du signal à fe à compter entre chaque échantillon du signal BF
  signal_BF = zeros(1,Temps_simulation/Te_BF);
  figure(1)
- Nb_point_BF=250;
+ Nb_point_BF=500;
  j=1; %indice    
  
       %---->  signal quadrature
@@ -213,11 +213,19 @@ plot(0:1:Nb_point_BF,Iy_norm,'g')
 plot(0:1:Nb_point_BF,I_norm,'r')
 
 figure(2)
+subplot(211)
 plot(test_d-0.6,'r')
 title ('mouvement');
-
-
-
+subplot(212)
+teta=atan(Iy_norm./I_norm);
+dteta=gradient(teta);
+%for i=2:length(dteta),
+%    if abs(dteta(i))>=1
+%        dteta(i)=dteta(i-1);
+%    end;
+%end;
+plot(dteta)
+title ('dteta');
 
 % traçage du cercle:
 figure(4)
